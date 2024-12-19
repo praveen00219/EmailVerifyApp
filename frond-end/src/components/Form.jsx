@@ -19,7 +19,7 @@ const Form = () => {
     setStatus("Sending...");
     try {
       const response = await axios.post(
-        "http://localhost:3000/send-email",
+        "https://emailverifyapp-backend.onrender.com",
         formData
       );
       if (response.status === 200) {
