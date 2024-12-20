@@ -29,11 +29,13 @@ app.post("/send-email", async (req, res) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
+      // service: "gmail",
+       host: "smtp.ethereal.email",
+       port: 587,
+       auth: {
         user: process.env.EMAIL,
         pass: process.env.PASSWORD,
-      },
+       },
     });
 
     const mailOptions = {
