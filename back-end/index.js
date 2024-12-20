@@ -8,23 +8,23 @@ const app = express();
 app.use(bodyParser.json());
 
 // before the host backend
-app.use(cors());
+// app.use(cors());
 
 // After the backend host
-// const allowedOrigins = ["https://emailverifyapp-frond-end.onrender.com"];
-// app.use(
-//   cors({
-//     origin: (origin, callback) => {
-//       if (allowedOrigins.includes(origin) || !origin) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error("Not allowed by CORS"));
-//       }
-//     },
-//   })
-// );
+const allowedOrigins = ["https://emailverifyapp-frond-end.onrender.com"];
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+  })
+);
 
-app.post("/send-email", async (req, res) => {
+app.post("/", async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
