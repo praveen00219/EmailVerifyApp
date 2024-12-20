@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 // app.use(cors());
 
 // After the backend host
-const allowedOrigins = ["https://emailverifyapp-backend.onrender.com"];
+const allowedOrigins = ["https://emailverifyapp-frond-end.onrender.com"];
 app.use(
   cors({
     origin: (origin, callback) => {
